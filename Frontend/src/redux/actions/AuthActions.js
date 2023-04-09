@@ -5,7 +5,7 @@ import {RegisterUserService, LoginUserService, LogOutUserService} from '../../se
 export const RegisterAction = (credentials) => {
     return (dispatch) => {
         dispatch({type: ActionTypes.RESTART_AUTH_RESPONSE});
-        dispatch({type: ActionTypes.LOADING});
+        
 
         
 
@@ -28,7 +28,7 @@ export const RegisterAction = (credentials) => {
 export const LoginAction = (credentials, history) => {
     return (dispatch) => {
         dispatch({type: ActionTypes.RESTART_AUTH_RESPONSE});
-        dispatch({type: ActionTypes.LOADING});
+        
         //console.log(history);
 
         

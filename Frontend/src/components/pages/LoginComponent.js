@@ -1,13 +1,10 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import { Button, TextField, Card } from "@material-ui/core";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import {useStyles} from '../../styles/styles';
-
-
 import {useDispatch, useSelector} from 'react-redux';
-
 import {LoginAction} from '../../redux/actions/AuthActions';
-
+import { LoadProfileAction } from '../../redux/actions/ProfileActions';
 
 
 import {useHistory,Link} from 'react-router-dom'; 
@@ -46,7 +43,9 @@ function LoginComponent() {
         
       };
       
-      
+      useEffect(() => {
+        dispatch(LoadProfileAction());
+      },[])
 
             
     

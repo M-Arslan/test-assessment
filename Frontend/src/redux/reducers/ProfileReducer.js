@@ -1,6 +1,6 @@
 import * as ActionTypes from '../ActionTypes';
 const initState = {
-    userProfile: "",
+    news:[],
   };
   
   const ProfileReducer = (state = initState, action) => {
@@ -9,25 +9,25 @@ const initState = {
       case ActionTypes.LOADING:
         return {
           ...state,
-          userProfile: "loading...",
+          news: "loading...",
         };
   
       case ActionTypes.LOAD_PROFILE_SUCCESS:
         return {
           ...state,
-          userProfile: action.res,
+          news: action.res,
         };
   
       case ActionTypes.LOAD_PROFILE_ERROR:
         return {
           ...state,
-          userProfile: action.res,
+          news: action.res,
         };
     
       case ActionTypes.CODE_ERROR:
         return {
           ...state,
-          userProfile:
+          news:
             "There seems to be a problem, please refresh your browser",
         };
   

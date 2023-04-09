@@ -1,6 +1,7 @@
 export default class HttpService
 {
-    url = "http://localhost:80/api";
+    // url = "http://localhost:80/api";
+    url = "http://127.0.0.1:8000/api";
 
 
     postData = async(item, added_url, tokenId="") => {

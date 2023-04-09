@@ -53,13 +53,9 @@ export default function Header(props) {
             <Toolbar>
 
             <Typography variant="h6" noWrap className={classes.title}>
-            <Link to="/home" className={classes.link}> REACT-PASSPORT</Link>
+            <Link to="/home" className={classes.link}> News Portal</Link>
             </Typography>
             
-
-            <Typography variant="h6" noWrap className={classes.title}>
-                Welcome to User Dashboard
-            </Typography>
             
             {
                 token !== null && token !== "" ?
