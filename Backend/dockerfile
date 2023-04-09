@@ -1,0 +1,27 @@
+# Use an official PHP runtime as a parent image
+FROM php:8.0.3-apache-buster
+
+# Set the working directory to /app
+WORKDIR /app
+
+# Install PHP extensions
+RUN docker-php-ext-install pdo pdo_mysql
+
+# Copy the composer.json and composer.lock files to the container
+COPY composer.json composer.lock ./
+
+# Install dependencies
+RUN apt-get update && apt-get install -y git && \
+    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
+    composer install --no-dev && \
+    apt-get remove -y git && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
+
+# Copy the rest of the application code to the container
+COPY . .
+
+# Set permissions
+RUN chown -R www-data:www-data storage bootstrap/cache
+RUN chmod -R 775 storage bootstrap/cache
+
+# Set the command to start the server
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8080"]
