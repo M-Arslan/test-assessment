@@ -18,7 +18,7 @@ class NewsController extends Controller
     public function index(Request $request)
     {
         $params = [
-            'q' => 'trump',
+            'q' => 'entertainment',
             'language' => 'en',
             'sortBy' => 'publishedAt',
         ];

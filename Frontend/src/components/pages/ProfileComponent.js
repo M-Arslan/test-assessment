@@ -16,14 +16,14 @@ export default function ProfileView() {
   }, []);
 
   return (
-    <>
-    {/* <SearchForm /> */}
-    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center',marginTop:"100px" }}>
+    <div style={{marginTop:"100px"}}>
+    <SearchForm />
+    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center',marginTop:"50px" }}>
       
       {profileResponse?.news?.length > 0 && profileResponse?.news?.map((item) => (
          <MediaCard item={item}/>
       ))}
     </div>
-   </> 
+   </div> 
   )
 }
