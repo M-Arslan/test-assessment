@@ -17,8 +17,9 @@ class NewsController extends Controller
 
     public function index(Request $request)
     {
+    
         $params = [
-            'q' => 'entertainment',
+            'q' =>$request->input('search',  'entertainment'),
             'language' => 'en',
             'sortBy' => 'publishedAt',
         ];
@@ -26,22 +27,6 @@ class NewsController extends Controller
         $response = $this->newsApiService->getNews('everything', $params);
 
         return $response->articles;
-        // $newsapi = new NewsApi(env('NEWSAPI_KEY'));
-
-        // $query = [
-        //     'q' => 'apple',
-        //     'from' => '2023-04-08',
-        //     'to' =>'2023-04-08',
-        //     'sortBy' => 'publishedAt',
-        //     'language' => 'en',
-        //     'pageSize' => 20,
-        //     'sources' => 'ANSA.it',
-        //     'domains' => 'bbc.co.uk, techcrunch.com, engadget.com'
-        // ];
-        // $q = 'apple';
-        // // https://newsapi.org/v2/everything?q=apple&from=2023-04-08&to=&sortBy=popularity&apiKey=7e5bf26bfcc2421993802b32cf376f13
-        // $articles = $newsapi->getEverything($q);
-
-        // return response()->json($articles);
+        
     }
 }
